@@ -66,9 +66,17 @@ export default {
         },
         delete_user(index){
             this.users.splice(index,1);
+            console.log(typeof this.users);
+            if (localStorage.users) {
+                let user = JSON.parse(localStorage.users);
+                user.splice(index,1);
+                localStorage.users = JSON.stringify(user);
+            }
         },
         delete_all(){
-            console.log(this.users.splice(0));
+            this.users.splice(0);
+            // localStorage.removeItem(localStorage.key(0));
+            localStorage.clear();
         }
     }
 }
