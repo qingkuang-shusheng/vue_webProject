@@ -16,7 +16,7 @@
             <td>{{user.bir}}</td>
             <td>{{user.content}}</td>
 <!--            <td>删除 | <router-link to="/detail">查看用户详情</router-link></td>-->
-            <td><a href="javascript:;" @click="delete_user(index)">删除</a> | <router-link :to="`/detail/${user.id}/${user.username}/${user.bir}/${user.content}`">查看用户详情</router-link></td>
+            <td><a href="javascript:;" @click="delete_user(index)">删除</a>|<router-link :to="`/detail/${user.id}/${user.username}/${user.bir}/${user.content}`">查看用户详情</router-link></td>
         </tr>
     </table>
         <br>
@@ -71,6 +71,11 @@ export default {
                 let user = JSON.parse(localStorage.users);
                 user.splice(index,1);
                 localStorage.users = JSON.stringify(user);
+            }
+        },
+        update_user(index){
+            if (localStorage.users){
+                let user = JSON.parse(localStorage.users);
             }
         },
         delete_all(){
